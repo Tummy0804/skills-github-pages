@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4CB9E7, #6DD5FA);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: white;
+            color: #4CB9E7;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #4CB9E7;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 第二个页面的样式 */
+        .hidden {
+            display: none;
+        }
+
+        .joke {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-top: 20px;
+            animation: shake 0.5s infinite alternate;
+        }
+
+        @keyframes shake {
+            from { transform: translateX(-5px); }
+            to { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 第一个页面 -->
+    <div class="container" id="page1">
+        <img src="https://via.placeholder.com/120" alt="头像" class="avatar">
+        <h1>欢迎来到梁思杰的个人主页！</h1>
+        <p>我是一个神秘的高手，拥有强大的技能！</p>
+        <button class="button" onclick="showJoke()">查看更多</button>
+        <div class="footer">© 2025 神秘人物</div>
+    </div>
+
+    <!-- 第二个页面（默认隐藏） -->
+    <div class="container hidden" id="page2">
+        <h1 class="joke">别看了，技能一无所有 😂</h1>
+        <p>你以为能学到什么？结果啥也没有！</p>
+        <button class="button" onclick="goBack()">返回</button>
+    </div>
+
+    <script>
+        function showJoke() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "block";
+        }
+
+        function goBack() {
+            document.getElementById("page2").style.display = "none";
+            document.getElementById("page1").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
